@@ -28,7 +28,8 @@
     "merkletreejs": "^0.2.32",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "swr": "^1.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.12",
