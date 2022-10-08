@@ -30,11 +30,11 @@ contract Patika is Ownable, ERC721A {
     string public revealedURI;
 
     string public hiddenURI =
-        "ipfs://QmTntBiZwcLZEopeVapWTdBzfpHZQaufdPm13ivz5i5vrj";
+        "ipfs://QmdtU7yAyVy456DtsWFx7mJ7PT1EgokRRkr8YgFYPBT9yb";
 
     // OpenSea CONTRACT_URI - https://docs.opensea.io/docs/contract-level-metadata
     string public CONTRACT_URI =
-        "ipfs://QmTntBiZwcLZEopeVapWTdBzfpHZQaufdPm13ivz5i5vrj";
+        "ipfs://QmdtU7yAyVy456DtsWFx7mJ7PT1EgokRRkr8YgFYPBT9yb";
 
     bool public paused = true;
     bool public revealed = false;

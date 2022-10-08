@@ -61,7 +61,7 @@ export const allowListMint = async (mintAmount) => {
   if (!isValid) {
     return {
       success: false,
-      status: 'Invalid Merkle Proof - You are not on the whitelist'
+      status: 'You are not on the whitelist'
     }
   }
 
@@ -93,7 +93,7 @@ export const allowListMint = async (mintAmount) => {
       success: true,
       status: (
         <a href={`https://goerli.etherscan.io/tx/${txHash}`} target="_blank">
-          <p>Successfully minted! View transaction on Etherscan: </p>
+          <p>View transaction on Etherscan: </p>
           <p>{`https://goerli.etherscan.io/tx/${txHash}`}</p>
         </a>
       )
@@ -101,7 +101,7 @@ export const allowListMint = async (mintAmount) => {
   } catch (error) {
     return {
       success: false,
-      status: 'Something went wrong. Please try again: ' + error.message
+      status: 'Please try again: ' + error.message
     }
   }
 }
@@ -140,7 +140,7 @@ export const publicMint = async (mintAmount) => {
       success: true,
       status: (
         <a href={`https://goerli.etherscan.io/tx/${txHash}`} target="_blank">
-          <p>Successfully minted! View transaction on Etherscan: </p>
+          <p>View transaction on Etherscan: </p>
           <p>{`https://goerli.etherscan.io/tx/${txHash}`}</p>
         </a>
       )
@@ -148,7 +148,8 @@ export const publicMint = async (mintAmount) => {
   } catch (error) {
     return {
       success: false,
-      status: 'Something went wrong. Please try again: ' + error.message
+      status:
+        `Please try again: ` + error.message
     }
   }
 }

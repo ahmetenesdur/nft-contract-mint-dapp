@@ -35,6 +35,7 @@ export default function Home() {
     setOnboard(initOnboard)
   }, [])
 
+  // wallet state
   useEffect(() => {
     if (!connectedWallets.length) return
 
@@ -47,6 +48,7 @@ export default function Home() {
     )
   }, [connectedWallets])
 
+  // previous connected wallets state
   useEffect(() => {
     if (!onboard) return
 
@@ -63,11 +65,11 @@ export default function Home() {
           }
         })
       }
-
       setWalletFromLocalStorage()
     }
   }, [onboard, connect])
 
+  // contract state
   useEffect(() => {
     const init = async () => {
       setMaxSupply(await getMaxSupply())
@@ -81,12 +83,12 @@ export default function Home() {
       setMaxMintAmount(
         isPreSale ? config.presaleMaxMintAmount : config.maxMintAmount
       )
-      await setChain({ chainId: '0x5' })
     }
 
     init()
   }, [])
 
+  // mint amount increment/decrement 
   const incrementMintAmount = () => {
     if (mintAmount < maxMintAmount) {
       setMintAmount(mintAmount + 1)
@@ -99,11 +101,15 @@ export default function Home() {
     }
   }
 
+  // total mint amount
   const totalPrice = () => {
     return Number.parseFloat(mintAmount * config.price).toFixed(3)
-}
+  }
 
+  // pre-sale mint
   const presaleMintHandler = async () => {
+    await setChain({ chainId: '0x5' })
+
     setIsMinting(true)
 
     const { success, status } = await allowListMint(mintAmount)
@@ -115,7 +121,11 @@ export default function Home() {
 
     setIsMinting(false)
   }
+
+  // public mint
   const publicMintHandler = async () => {
+    await setChain({ chainId: '0x5' })
+
     setIsMinting(true)
 
     const { success, status } = await publicMint(mintAmount)
@@ -141,9 +151,11 @@ export default function Home() {
         <div className="relative w-full h-full flex flex-col items-center justify-center">
           <div className="flex flex-col items-center justify-center h-full w-full">
             <div className="relative z-1 md:max-w-3xl w-full bg-[#1b232f] filter backdrop-blur-sm py-4 rounded-md px-2 md:px-10 flex flex-col items-center">
+
+              {/*  wallet disconnected */}
               {wallet && (
                 <button
-                  className="absolute right-4 bg-indigo-600 transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-white tracking-wide"
+                  className="absolute right-4 bg-indigo-900 transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-white tracking-wide"
                   onClick={() =>
                     disconnect({
                       label: wallet.label
@@ -153,9 +165,13 @@ export default function Home() {
                   Disconnect
                 </button>
               )}
+
+              {/*  change title sale state  */}
               <h1 className="font-bold text-5xl bg-gradient-to-br text-pink-800 bg-clip-text mt-4">
                 {paused ? 'Paused' : isPreSale ? 'Pre-Sale' : 'Public Sale'}
               </h1>
+
+              {/*  user address  */}
               <h3 className="text-sm text-pink-200 tracking-widest mt-2">
                 {wallet?.accounts[0]?.address
                   ? wallet?.accounts[0]?.address.slice(0, 8) +
@@ -165,6 +181,8 @@ export default function Home() {
               </h3>
 
               <div className="flex flex-col md:flex-row md:space-x-14 w-full mt-10 md:mt-14">
+
+                {/* total minted and max supply */}
                 <div className="relative w-full">
                   <div className="z-10 absolute top-2 left-2 opacity-80 filter backdrop-blur-lg text-base px-4 py-2 bg-black border border-brand-purple rounded-md flex items-center justify-center text-white font-semibold">
                     <p>
@@ -174,12 +192,14 @@ export default function Home() {
                   </div>
 
                   <img
-                    src="https://img.seadn.io/files/98d33699e105f6216c2156e02eb8552a.jpg?fit=max&w=1000"
-                    className="object-cover w-full sm:h-[280px] md:w-[250px] rounded-md"
+                    src="https://i.seadn.io/gae/O7xfYc-mQOvenEX4Rpn54YvYkdncWJzGDSe_HL4oB2wXbjk4D20_x5XbyDGboBq9VOqHPcHSgi7xWK1yB29efOgc8EwSt_dfAtQjKA?auto=format&w=1920"
+                    className="object-cover w-full h-full rounded-md"
                   />
                 </div>
 
                 <div className="flex flex-col items-center w-full px-5 mt-10">
+
+                  {/* mint amount */}
                   <div className="flex items-center justify-between w-full">
                     <button
                       className="w-14 h-10 md:w-16 md:h-12 flex items-center justify-center text-brand-background hover:shadow-lg bg-gray-300 font-bold rounded-md"
@@ -226,10 +246,12 @@ export default function Home() {
                     </button>
                   </div>
 
+                  {/* max mint */}
                   <p className="text-sm text-pink-200 tracking-widest mt-5">
                     Max Mint Amount: {maxMintAmount}
                   </p>
 
+                  {/* mint price and total price */}
                   <div className="w-full text-xl flex items-center justify-between text-pink-400 mt-6">
                     <p>Total</p>
 
@@ -242,7 +264,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Mint Button && Connect Wallet Button */}
+                  {/* mint button and status and connect button */}
                   {wallet ? (
                     <button
                       className={` ${paused || isMinting
@@ -262,10 +284,11 @@ export default function Home() {
                       Connect Wallet
                     </button>
                   )}
+
                 </div>
               </div>
 
-              {/* Status */}
+              {/* status */}
               {status && (
                 <div
                   className={`border ${status.success ? 'border-green-500' : 'border-red-500 '
@@ -277,7 +300,7 @@ export default function Home() {
                 </div>
               )}
 
-              {/* Contract Address */}
+              {/* contract address */}
               <div className="border-t border-gray-800 flex flex-col items-center mt-10 py-2 w-full text-pink-800">
                 <h3 className="text-2xl text-brand-pink mt-6 font-bold">
                   Contract Address
