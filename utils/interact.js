@@ -3,7 +3,7 @@ const { MerkleTree } = require('merkletreejs')
 const keccak256 = require('keccak256')
 const whitelist = require('../scripts/whitelist.js')
 
-const web3 = createAlchemyWeb3(process.env.NEXT_PUBLIC_ALCHEMY_RPC_URL)
+const web3 = createAlchemyWeb3(process.env.NEXT_PUBLIC_ALCHEMY_API)
 import { config } from '../dapp.config'
 
 // get the contract instance

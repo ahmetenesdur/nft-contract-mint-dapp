@@ -6,7 +6,7 @@ import coinbaseWalletModule from '@web3-onboard/coinbase'
 import blocknativeLogo from '../icon'
 import blocknativeIcon from '../icon'
 
-const RPC_URL = process.env.NEXT_PUBLIC_ALCHEMY_RPC_URL
+const RPC_URL = process.env.NEXT_PUBLIC_ALCHEMY_API
 
 // wallet modules
 const injected = injectedModule()
@@ -61,7 +61,7 @@ const initOnboard = init({
       }
     },
   },
-  apiKey: process.env.NEXT_PUBLIC_DAPP_ID,
+  apiKey: process.env.NEXT_PUBLIC_BLOCKNATIVE_API,
 })
 
 export { initOnboard }
