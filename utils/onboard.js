@@ -13,6 +13,7 @@ const injected = injectedModule()
 const walletConnect = walletConnectModule()
 const coinbaseWalletSdk = coinbaseWalletModule({ darkMode: true })
 
+
 const initOnboard = init({
   wallets: [injected, walletConnect, coinbaseWalletSdk], // wallet modules to use in the app
   chains: [ // chain ids to use in the app
@@ -44,6 +45,23 @@ const initOnboard = init({
       { name: 'MetaMask', url: 'https://metamask.io' },
     ],
   },
+  notify: {
+    enabled: true,
+    position: 'topRight',
+    transactionHandler: transaction => {
+      console.log({ transaction })
+      if (transaction.eventCode === 'txPool') {
+        return {
+          type: 'hint',
+          message: 'Your in the pool, hope you brought a towel!',
+          autoDismiss: 0,
+          onClick: () =>
+            window.open(`https://goerli.etherscan.io/tx/${transaction.hash}`)
+        }
+      }
+    },
+  },
+  apiKey: process.env.NEXT_PUBLIC_DAPP_ID,
 })
 
 export { initOnboard }

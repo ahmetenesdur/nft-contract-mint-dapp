@@ -3823,6 +3823,17 @@
   "resolved" "https://registry.npmjs.org/bn.js/-/bn.js-4.11.8.tgz"
   "version" "4.11.8"
 
+"bnc-notify@^1.9.5":
+  "integrity" "sha512-pjXYrWafjnOGOY7e6Mb1fY+A6tQAgroBHR5pQxokq3jYr4TYQumv2TLhc0/idqYI+G9AwsBMQJSWcZQ2jZI5AQ=="
+  "resolved" "https://registry.npmjs.org/bnc-notify/-/bnc-notify-1.9.5.tgz"
+  "version" "1.9.5"
+  dependencies:
+    "bignumber.js" "^9.0.0"
+    "bnc-sdk" "4.1.0"
+    "lodash.debounce" "^4.0.8"
+    "regenerator-runtime" "^0.13.3"
+    "uuid" "^3.3.3"
+
 "bnc-sdk@^4.4.1":
   "integrity" "sha512-ESN5pRkbAXwYqcgoi4vuDkVBjdVwV0DcNbQKWShYTh0I0anzsIZd52mKM929HPi4iuSnfmNkqSrDqvFcMCAvFQ=="
   "resolved" "https://registry.npmjs.org/bnc-sdk/-/bnc-sdk-4.6.0.tgz"
@@ -3830,6 +3841,15 @@
   dependencies:
     "crypto-es" "^1.2.2"
     "nanoid" "^3.3.1"
+    "rxjs" "^6.6.3"
+    "sturdy-websocket" "^0.1.12"
+
+"bnc-sdk@4.1.0":
+  "integrity" "sha512-gbW5wRLPB7HDzXof5VrkFSDoyfuD2O9K8dOTRQl2OE/HAj3/epKyccQDtWNLNih7t234VM/sv9t6nxqRnNRJmQ=="
+  "resolved" "https://registry.npmjs.org/bnc-sdk/-/bnc-sdk-4.1.0.tgz"
+  "version" "4.1.0"
+  dependencies:
+    "crypto-es" "^1.2.2"
     "rxjs" "^6.6.3"
     "sturdy-websocket" "^0.1.12"
 
@@ -9975,7 +9995,7 @@
   "resolved" "https://registry.npmjs.org/regenerate/-/regenerate-1.4.2.tgz"
   "version" "1.4.2"
 
-"regenerator-runtime@^0.13.2", "regenerator-runtime@^0.13.4":
+"regenerator-runtime@^0.13.2", "regenerator-runtime@^0.13.3", "regenerator-runtime@^0.13.4":
   "integrity" "sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA=="
   "resolved" "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz"
   "version" "0.13.9"
@@ -11703,6 +11723,11 @@
   "version" "1.0.1"
 
 "uuid@^3.3.2":
+  "integrity" "sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A=="
+  "resolved" "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz"
+  "version" "3.4.0"
+
+"uuid@^3.3.3":
   "integrity" "sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A=="
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz"
   "version" "3.4.0"
