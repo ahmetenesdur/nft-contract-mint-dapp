@@ -9,7 +9,7 @@ const hre = require('hardhat')
 async function main() {
 
   await hre.run('verify:verify', {
-    address: '0xbcf56495D08b453C518e14Db8d7Fb66B83565f28', // Deployed contract address
+    address: '0x38ceaff1098AA6252394da56A23533E48314Be91', // Deployed contract address
     constructorArguments: [],
     contract: "contracts/Patika.sol:Patika" // Path to the contract
   })

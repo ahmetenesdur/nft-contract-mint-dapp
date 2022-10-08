@@ -6,14 +6,13 @@
 const hre = require('hardhat')
 
 async function main() {
-
   // Deploy the contract
-  const Contract = await hre.ethers.getContractFactory('Patika') // Path to the contract
-  const contracT = await Contract.deploy()
+  const Contract = await hre.ethers.getContractFactory('Patika')
+  const contract = await Contract.deploy()
 
-  await contracT.deployed()
+  await contract.deployed()
 
-  console.log('Contract deployed to:', contracT.address)
+  console.log('Contract deployed to:', contract.address)
 }
 
 // We recommend this pattern to be able to use async/await everywhere

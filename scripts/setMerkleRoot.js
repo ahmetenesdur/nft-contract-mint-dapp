@@ -13,7 +13,7 @@ const whitelist = require('./whitelist.js')
 async function main() {
   const nftFactory = await hre.ethers.getContractFactory('Patika')
   const nftContract = await nftFactory.attach(
-    '0x0312e42e4b55823a3C41769DC0B07F382dECc247' // Deployed contract address
+    '0x38ceaff1098AA6252394da56A23533E48314Be91' // Deployed contract address
   )
 
   // Re-calculate merkle root from the whitelist array.
