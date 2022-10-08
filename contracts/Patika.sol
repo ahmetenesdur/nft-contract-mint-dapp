@@ -31,8 +31,6 @@ contract Patika is Ownable, ERC721A {
 
     string public hiddenURI =
         "ipfs://QmdtU7yAyVy456DtsWFx7mJ7PT1EgokRRkr8YgFYPBT9yb";
-
-    // OpenSea CONTRACT_URI - https://docs.opensea.io/docs/contract-level-metadata
     string public CONTRACT_URI =
         "ipfs://QmdtU7yAyVy456DtsWFx7mJ7PT1EgokRRkr8YgFYPBT9yb";
 
@@ -47,8 +45,8 @@ contract Patika is Ownable, ERC721A {
 
     uint256 internal devWithdrawPercent = 4000;
 
-    mapping(address => uint256) public numUserMints;
-    mapping(address => bool) public userMintedAllowList;
+    mapping(address => uint256) public numUserMints; // user => numMints
+    mapping(address => bool) public userMintedAllowList; // user => minted
 
     constructor() ERC721A("Patika", "PTK") {}
 
@@ -73,6 +71,7 @@ contract Patika is Ownable, ERC721A {
         return 1;
     }
 
+    // verify if the user is on the allow list
     function _verifyPublicAllowList(bytes32[] memory _proof, bytes32 _root)
         internal
         view
@@ -86,6 +85,7 @@ contract Patika is Ownable, ERC721A {
             );
     }
 
+    // refund if the user not enough balance
     function refundOverpay(uint256 price) private {
         if (msg.value > price) {
             (bool succ, ) = payable(msg.sender).call{
@@ -112,6 +112,7 @@ contract Patika is Ownable, ERC721A {
     *
     */
 
+    // pre-sale mint function
     function allowListMint(bytes32[] memory proof)
         external
         payable
@@ -131,6 +132,7 @@ contract Patika is Ownable, ERC721A {
         _safeMint(msg.sender, 1);
     }
 
+    // team mint function
     function teamMint(uint256 quantity)
         public
         payable
@@ -148,6 +150,7 @@ contract Patika is Ownable, ERC721A {
         _safeMint(msg.sender, quantity);
     }
 
+    // public mint function
     function publicMint(uint256 quantity)
         external
         payable
@@ -186,6 +189,7 @@ contract Patika is Ownable, ERC721A {
     *
     */
 
+    // owned token Id to address mapping for easy transfer of ownership of tokens
     function walletOfOwner(address _owner)
         public
         view
@@ -213,6 +217,7 @@ contract Patika is Ownable, ERC721A {
         return ownedTokenIds;
     }
 
+    // token URI for each token ID (metadata)
     function tokenURI(uint256 _tokenId)
         public
         view
@@ -244,6 +249,7 @@ contract Patika is Ownable, ERC721A {
         return CONTRACT_URI;
     }
 
+    // verify proof of public allow list
     function verifyPublicAllowList(
         address _address,
         bytes32[] memory _proof,
@@ -272,30 +278,37 @@ contract Patika is Ownable, ERC721A {
      *
      */
 
+    // set merkle root
     function setMerkleRoot(bytes32 _merkleRoot) external onlyOwner {
         merkleRoot = _merkleRoot;
     }
 
+    // set pre-sale max mint limit
     function setAllowListMax(uint256 _allowListMax) public onlyOwner {
         ALLOW_LIST_MAX = _allowListMax;
     }
 
+    // set team max mint limit
     function setTeamMintMax(uint256 _teamMintMax) public onlyOwner {
         TEAM_MINT_MAX = _teamMintMax;
     }
 
+    // set public mint price
     function setPublicPrice(uint256 _publicPrice) public onlyOwner {
         PUBLIC_PRICE = _publicPrice;
     }
 
+    // set dev percent
     function setDevWithdrawCut(uint256 _devPercentage) public onlyOwner {
         devWithdrawPercent = _devPercentage;
     }
 
+    // set revealed URI
     function setBaseURI(string memory _baseUri) public onlyOwner {
         revealedURI = _baseUri;
     }
 
+    // set hidden URI
     // Note: This method can be hidden/removed if this is a constant.
     function setHiddenMetadataURI(string memory _hiddenMetadataUri)
         public
@@ -304,6 +317,7 @@ contract Patika is Ownable, ERC721A {
         hiddenURI = _hiddenMetadataUri;
     }
 
+    // set revealed state
     function revealCollection(bool _revealed, string memory _baseUri)
         public
         onlyOwner
@@ -312,32 +326,39 @@ contract Patika is Ownable, ERC721A {
         revealedURI = _baseUri;
     }
 
+    // set contract URI
     // https://docs.opensea.io/docs/contract-level-metadata
     function setContractURI(string memory _contractURI) public onlyOwner {
         CONTRACT_URI = _contractURI;
     }
 
+    // set pause state
     // https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/security/Pausable.sol
     function setPaused(bool _state) public onlyOwner {
         paused = _state;
     }
 
+    // set revealed state
     function setRevealed(bool _state) public onlyOwner {
         revealed = _state;
     }
 
+    // set public sale state
     function setPublicEnabled(bool _state) public onlyOwner {
         publicSale = _state;
     }
 
+    // set pre-sale state
     function setAllowListEnabled(bool _state) public onlyOwner {
         allowListSale = _state;
     }
 
+    // set team wallet address
     function setTeamWalletAddress(address _teamWallet) public onlyOwner {
         teamWallet = _teamWallet;
     }
 
+    // withdraw funds percentage to dev wallet address and team wallet address
     function withdraw() external payable onlyOwner {
         // Get the current funds to calculate initial percentages
         uint256 currBalance = address(this).balance;
@@ -377,6 +398,7 @@ contract Patika is Ownable, ERC721A {
     *
     */
 
+    // modifier to check if the contract is paused and total supply is less than max supply
     modifier mintCompliance(uint256 quantity) {
         require(!paused, "Contract is paused");
         require(

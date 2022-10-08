@@ -8,13 +8,14 @@ import blocknativeIcon from '../icon'
 
 const RPC_URL = process.env.NEXT_PUBLIC_ALCHEMY_RPC_URL
 
+// wallet modules
 const injected = injectedModule()
 const walletConnect = walletConnectModule()
 const coinbaseWalletSdk = coinbaseWalletModule({ darkMode: true })
 
 const initOnboard = init({
-  wallets: [injected, walletConnect, coinbaseWalletSdk],
-  chains: [
+  wallets: [injected, walletConnect, coinbaseWalletSdk], // wallet modules to use in the app
+  chains: [ // chain ids to use in the app
     // {
     //   id: '0x1',
     //   token: 'ETH',
@@ -34,7 +35,7 @@ const initOnboard = init({
     //   rpcUrl: RPC_URL
     // }
   ],
-  appMetadata: {
+  appMetadata: { // metadata for the app
     name: 'Patika',
     icon: blocknativeIcon,
     logo: blocknativeLogo,
