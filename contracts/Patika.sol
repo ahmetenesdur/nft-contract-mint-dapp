@@ -243,6 +243,20 @@ contract Patika is Ownable, ERC721A {
         return CONTRACT_URI;
     }
 
+    // verify proof of public allow list
+    function verifyPublicAllowList(
+        address _address,
+        bytes32[] memory _proof,
+        bytes32 _root
+    ) public pure returns (bool) {
+        return
+            MerkleProof.verify(
+                _proof,
+                _root,
+                keccak256(abi.encodePacked(_address))
+            );
+    }
+
     /*
      *
 
