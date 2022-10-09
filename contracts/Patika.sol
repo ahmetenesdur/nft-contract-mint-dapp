@@ -65,12 +65,6 @@ contract Patika is Ownable, ERC721A {
     *
     */
 
-    // This function is if you want to override the first Token ID# for ERC721A
-    // Note: Fun fact - by overloading this method you save a small amount of gas for minting (technically just the first mint)
-    function _startTokenId() internal view virtual override returns (uint256) {
-        return 1;
-    }
-
     // verify if the user is on the allow list
     function _verifyPublicAllowList(bytes32[] memory _proof, bytes32 _root)
         internal
