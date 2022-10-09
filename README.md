@@ -54,7 +54,7 @@ ETHERSCAN_API_KEY=
 
 If you want to make changes to the Patika smart contract, you can find Patika.sol in the `/contracts` folder. Remove `/artifacts` folder. After making the changes, recompile your smart contract using the `npx hardhat compile` command.
 
-You need to update the `scripts/whitelist.js` file with your whitelisted user accounts and deploy and verify your smart contract on the blockchain. For this, you can find the _deploy_ & _verify_ scripts in the `/scripts` folder. You can run these scripts using the commands `npx hardhat run scripts/deploy.js` and `npx hardhat run scripts/verify.js`.
+You need to update the `scripts/whitelist.js` file with your whitelisted user accounts and deploy and verify your smart contract on the blockchain. For this, you can find the _deploy_ & _verify_ scripts in the `/scripts` folder. You can run these scripts using the commands `npx hardhat run scripts/deployContract.js` and `npx hardhat run scripts/verifyContract.js`.
 
 If you want to use a different network, change the Alchemy API. Make sure you configure it in the `hardhat.config.js` file. You can find the Configuration [here](https://hardhat.org/config/#networks-configuration).
 
