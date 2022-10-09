@@ -137,7 +137,7 @@ contract Patika is Ownable, ERC721A {
             TOTAL_SUPPLY_TEAM + quantity <= TEAM_MINT_MAX,
             "No team mints left"
         );
-        require(totalSupply() >= 0, "Team mints after public sale");
+        require(totalSupply() >= 5, "Team mints after public sale");
 
         TOTAL_SUPPLY_TEAM += quantity;
 
@@ -243,20 +243,6 @@ contract Patika is Ownable, ERC721A {
         return CONTRACT_URI;
     }
 
-    // verify proof of public allow list
-    function verifyPublicAllowList(
-        address _address,
-        bytes32[] memory _proof,
-        bytes32 _root
-    ) public pure returns (bool) {
-        return
-            MerkleProof.verify(
-                _proof,
-                _root,
-                keccak256(abi.encodePacked(_address))
-            );
-    }
-
     /*
      *
 
@@ -321,7 +307,6 @@ contract Patika is Ownable, ERC721A {
     }
 
     // set contract URI
-    // https://docs.opensea.io/docs/contract-level-metadata
     function setContractURI(string memory _contractURI) public onlyOwner {
         CONTRACT_URI = _contractURI;
     }
