@@ -155,7 +155,7 @@ export default function Home() {
               {/*  wallet disconnected */}
               {wallet && (
                 <button
-                  className="absolute right-4 bg-indigo-900 transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-white tracking-wide"
+                  className="absolute right-4 bg-[#2E0249] hover:bg-[#570A57] transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-white tracking-wide"
                   onClick={() =>
                     disconnect({
                       label: wallet.label
@@ -167,7 +167,7 @@ export default function Home() {
               )}
 
               {/*  change title sale state  */}
-              <h1 className="font-bold text-5xl bg-gradient-to-br text-pink-800 bg-clip-text mt-4">
+              <h1 className="font-bold text-5xl bg-gradient-to-br text-[#A91079] bg-clip-text mt-4">
                 {paused ? 'Paused' : isPreSale ? 'Pre-Sale' : 'Public Sale'}
               </h1>
 
@@ -184,9 +184,9 @@ export default function Home() {
 
                 {/* total minted and max supply */}
                 <div className="relative w-full">
-                  <div className="z-10 absolute top-2 left-2 opacity-80 filter backdrop-blur-lg text-base px-4 py-2 bg-black border border-brand-purple rounded-md flex items-center justify-center text-white font-semibold">
+                  <div className="z-10 absolute top-2 left-2 opacity-90 filter text-base px-4 py-2 bg-black rounded-md flex items-center justify-center text-white">
                     <p>
-                      <span className="text-brand-pink">{totalMinted}</span> /{' '}
+                      <span className="text-pink-400">{totalMinted}</span> /{' '}
                       {maxSupply}
                     </p>
                   </div>
@@ -221,7 +221,7 @@ export default function Home() {
                       </svg>
                     </button>
 
-                    <p className="flex items-center justify-center flex-1 grow text-center font-bold text-pink-200 text-3xl md:text-4xl">
+                    <p className="flex items-center justify-center flex-1 grow text-center font-bold text-[#F806CC] text-3xl md:text-4xl">
                       {mintAmount}
                     </p>
 
@@ -252,7 +252,7 @@ export default function Home() {
                   </p>
 
                   {/* mint price and total price */}
-                  <div className="w-full text-xl flex items-center justify-between text-pink-400 mt-6">
+                  <div className="w-full text-xl flex items-center justify-between text-[#A91079] mt-6">
                     <p>Total</p>
 
                     <div className="flex items-center space-x-3">
@@ -269,7 +269,7 @@ export default function Home() {
                     <button
                       className={` ${paused || isMinting
                         ? 'bg-gray-600 cursor-not-allowed'
-                        : 'bg-gradient-to-br bg-fuchsia-600 hover:bg-fuchsia-800 '
+                        : 'bg-gradient-to-br bg-[#570A57] hover:bg-[#2E0249]'
                         } mt-8 w-full py-3 rounded-md text-2xl text-white tracking-wide `}
                       disabled={paused || isMinting}
                       onClick={isPreSale ? presaleMintHandler : publicMintHandler}
@@ -278,7 +278,7 @@ export default function Home() {
                     </button>
                   ) : (
                     <button
-                      className="mt-8 w-full bg-fuchsia-600 hover:bg-fuchsia-800 shadow-lg py-3 rounded-md text-2xl text-white tracking-wide "
+                      className="mt-8 w-full bg-[#570A57] hover:bg-[#2E0249] shadow-lg py-3 rounded-md text-2xl text-white tracking-wide "
                       onClick={() => connect()}
                     >
                       Connect Wallet
@@ -301,7 +301,7 @@ export default function Home() {
               )}
 
               {/* contract address */}
-              <div className="border-t border-gray-800 flex flex-col items-center mt-10 py-2 w-full text-pink-800">
+              <div className="border-t border-gray-800 flex flex-col items-center mt-10 py-2 w-full text-[#A91079]">
                 <h3 className="text-2xl text-brand-pink mt-6 font-bold">
                   Contract Address
                 </h3>
