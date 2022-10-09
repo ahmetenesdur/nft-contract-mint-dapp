@@ -52,7 +52,7 @@ METAMASK_PRIVATE_KEY=
 ETHERSCAN_API_KEY=
 ```
 
-If you want to make changes to the Patika smart contract, you can find Patika.sol in the `/contracts` folder. Remove `/artifacts` folder. After making the changes, recompile your smart contract using the `npx hardhat compile` command.
+If you want to make changes to the Patika smart contract, you can find Patika.sol in the `/contracts` folder. Remove `/artifacts` folder using `npx hardhat clean`. After making the changes, recompile your smart contract using the `npx hardhat compile` command.
 
 You need to update the `scripts/whitelist.js` file with your whitelisted user accounts and deploy and verify your smart contract on the blockchain. For this, you can find the _deploy_ & _verify_ scripts in the `/scripts` folder. You can run these scripts using the commands `npx hardhat run scripts/deployContract.js` and `npx hardhat run scripts/verifyContract.js`.
 
