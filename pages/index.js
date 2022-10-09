@@ -202,7 +202,7 @@ export default function Home() {
                   {/* mint amount */}
                   <div className="flex items-center justify-between w-full">
                     <button
-                      className="w-14 h-10 md:w-16 md:h-12 flex items-center justify-center text-brand-background hover:shadow-lg bg-gray-300 font-bold rounded-md"
+                      className="w-14 h-10 md:w-16 md:h-12 flex items-center justify-center text-brand-background hover:shadow-lg font-bold rounded-md bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out"
                       onClick={decrementMintAmount}
                     >
                       <svg
@@ -226,7 +226,7 @@ export default function Home() {
                     </p>
 
                     <button
-                      className="w-14 h-10 md:w-16 md:h-12 flex items-center justify-center text-brand-background hover:shadow-lg bg-gray-300 font-bold rounded-md"
+                      className="w-14 h-10 md:w-16 md:h-12 flex items-center justify-center text-brand-background hover:shadow-lg font-bold rounded-md bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out"
                       onClick={incrementMintAmount}
                     >
                       <svg
