@@ -1,5 +1,5 @@
 /**
- *  This script will calculate the constructor arguments for BoredApe.sol and deploy it.
+ *  This script will calculate the constructor arguments for Patika.sol and deploy it.
  *  After deploying, you can access the contract on etherscan.io with the deployed contract address.
  */
 
