@@ -45,8 +45,8 @@ contract Patika is Ownable, ERC721A {
 
     uint256 internal devWithdrawPercent = 4000;
 
-    mapping(address => uint256) public numUserMints; // user => numMints
-    mapping(address => bool) public userMintedAllowList; // user => minted
+    mapping(address => uint256) public numUserMints; // user => numMints (public)
+    mapping(address => bool) public userMintedAllowList; // user => minted (allow list)
 
     constructor() ERC721A("Patika", "PTK") {}
 
