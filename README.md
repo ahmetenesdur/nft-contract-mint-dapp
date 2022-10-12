@@ -9,6 +9,10 @@ To see the project in action, visit the following link:
 
 [![vercel](https://img.shields.io/badge/vercel-230?style=for-the-badge&logo=vercel&logoColor=white)](https://nft-contract-mint-app.vercel.app/)
 
+To better understand watch my presentation on loom:
+
+[![loom](https://img.shields.io/badge/loom-230?style=for-the-badge&logo=loom&logoColor=white)](https://www.loom.com/share/e04f833c53114d5cb36321f1be159acc)
+
 ## Quick start
 
 Clone the repo:

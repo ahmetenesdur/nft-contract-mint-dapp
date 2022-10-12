@@ -198,16 +198,12 @@ contract Patika is Ownable, ERC721A {
             ownedTokenIndex < ownerTokenCount && currentTokenId <= MAX_SUPPLY
         ) {
             address currentTokenOwner = ownerOf(currentTokenId);
-
             if (currentTokenOwner == _owner) {
                 ownedTokenIds[ownedTokenIndex] = currentTokenId;
-
                 ownedTokenIndex++;
             }
-
             currentTokenId++;
         }
-
         return ownedTokenIds;
     }
 
