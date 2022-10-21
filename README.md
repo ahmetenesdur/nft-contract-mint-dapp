@@ -78,3 +78,5 @@ Update the `/utils/interact.js` file to use the relevant functions from your upd
 
 ![dApp Screenshot](https://i.imgur.com/NhMEBCW.png)
 ![dApp Screenshot](https://i.imgur.com/ge6KDs8.png)
+
+[![linkedin](https://img.shields.io/badge/linkedin-230?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ahmetenesdur/) [![github](https://img.shields.io/badge/github-230?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ahmetenesdur)
