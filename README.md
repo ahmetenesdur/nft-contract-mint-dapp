@@ -18,7 +18,7 @@ To better understand watch my presentation on loom:
 Clone the repo:
 
 ```bash
-git clone https://github.com/ahmetenesdur/nft-contract-mint-app.git
+git clone https://github.com/ahmetenesdur/nft-contract-mint-dapp.git
 ```
 
 Navigate to the project directory:
