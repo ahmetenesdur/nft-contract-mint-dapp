@@ -7,7 +7,7 @@ React, NextJS, TailwindCSS, Solidity, Hardhat, web3.js, Alchemy API, IPFS, Ether
 
 To see the project in action, visit the following link:
 
-[![vercel](https://img.shields.io/badge/vercel-230?style=for-the-badge&logo=vercel&logoColor=white)](https://nft-contract-mint-app.vercel.app/)
+[![vercel](https://img.shields.io/badge/vercel-230?style=for-the-badge&logo=vercel&logoColor=white)](https://nft-contract-mint-dapp.vercel.app/)
 
 To better understand watch my presentation on loom:
 
